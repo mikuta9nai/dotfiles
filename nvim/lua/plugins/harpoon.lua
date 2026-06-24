@@ -22,20 +22,22 @@ return {
     map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
       { desc = "Harpoon: toggle menu" })
 
-    -- 마킹된 파일로 번호 점프 (1~4)
-    map("n", "<C-h>", function() harpoon:list():select(1) end,
+    -- 마킹된 파일로 번호 점프 (Alt+1~4)
+    -- 숫자키 위치 = harpoon 번호. 한 손가락, 거의 안 보고 누름.
+    map("n", "<M-1>", function() harpoon:list():select(1) end,
       { desc = "Harpoon: file 1" })
-    map("n", "<C-t>", function() harpoon:list():select(2) end,
+    map("n", "<M-2>", function() harpoon:list():select(2) end,
       { desc = "Harpoon: file 2" })
-    map("n", "<C-n>", function() harpoon:list():select(3) end,
+    map("n", "<M-3>", function() harpoon:list():select(3) end,
       { desc = "Harpoon: file 3" })
-    map("n", "<C-s>", function() harpoon:list():select(4) end,
+    map("n", "<M-4>", function() harpoon:list():select(4) end,
       { desc = "Harpoon: file 4" })
 
-    -- 이전/다음 마킹 파일로 순환 이동
-    map("n", "<S-h>", function() harpoon:list():prev() end,
+    -- 이전/다음 마킹 파일로 순환 이동 (Alt+P / Alt+N)
+    -- 주의: 기존 <S-h>/<S-l> 은 Vim 기본 H/L(화면 위/아래 점프)을 덮어써서 교체함
+    map("n", "<M-p>", function() harpoon:list():prev() end,
       { desc = "Harpoon: prev file" })
-    map("n", "<S-l>", function() harpoon:list():next() end,
+    map("n", "<M-n>", function() harpoon:list():next() end,
       { desc = "Harpoon: next file" })
   end,
 }

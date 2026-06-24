@@ -73,7 +73,6 @@ return {
           vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, o("Find references"))
           vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, o("Rename symbol"))
           vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, o("Workspace symbol"))
-          vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, o("Signature help"))
 
           -- 진단 이동 (vim 관례: [ = 이전, ] = 다음). 0.11+ jump API
           vim.keymap.set("n", "[d", function()

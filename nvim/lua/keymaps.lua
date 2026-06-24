@@ -51,9 +51,6 @@ map("n", "<Esc>", ":nohlsearch<CR><Esc>", { silent = true, desc = "Clear search 
 -- Q 비활성화 (실수로 Ex 모드 진입 방지)
 map("n", "Q", "<nop>", { desc = "Disable Ex mode" })
 
--- 창 분할
-map("n", "<leader>h", ":split<CR>", { desc = "Horizontal split" })
-
 -- 터미널 Esc로 Normal 모드 전환
 map("t", "<Esc>", [[<C-\><C-N>]], { desc = "Terminal: exit insert mode" })
 
