@@ -1,0 +1,6 @@
+# bat 설정 → ~/.config/bat/config
+# 테마 이름은 파일명 기준 (themes/tokyonight_storm.tmTheme).
+# 인식하려면 심링크 후 한 번:  bat cache --build
+--theme="tokyonight_storm"
+--style="numbers,changes,header"
+--italic-text=always

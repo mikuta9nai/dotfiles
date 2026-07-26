@@ -1,0 +1,44 @@
+[user]
+	email = ganghyeonjeon217@gmail.com
+	name = mikuta9nai
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+# ─── QoL 기본값 ────────────────────────────────
+[column]
+	ui = auto
+[push]
+	autoSetupRemote = true
+[merge]
+	conflictStyle = zdiff3
+[diff]
+	colorMoved = default
+
+# ─── delta (git diff 뷰어) ─────────────────────
+# delta 는 tools/install-bins.sh 로 ~/.local/bin 에 설치됩니다.
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+	syntax-theme = tokyonight_storm
+
+# delta Tokyo Night Storm 색 (folke/tokyonight extras)
+	minus-style                   = syntax "#52313f"
+	minus-non-emph-style          = syntax "#52313f"
+	minus-emph-style              = syntax "#763842"
+	minus-empty-line-marker-style = syntax "#52313f"
+	line-numbers-minus-style      = "#914c54"
+	plus-style                    = syntax "#2b485a"
+	plus-non-emph-style           = syntax "#2b485a"
+	plus-emph-style               = syntax "#316172"
+	plus-empty-line-marker-style  = syntax "#2b485a"
+	line-numbers-plus-style       = "#449dab"
+	line-numbers-zero-style       = "#3b4261"
