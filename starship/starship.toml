@@ -1,0 +1,101 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# 두 줄 + powerline 스타일 세그먼트 · Tokyo Night Storm
+add_newline = true
+palette = "tokyo_night"
+
+format = """
+[](color_dir)\
+$directory\
+[](fg:color_dir bg:color_git)\
+$git_branch\
+$git_status\
+[](fg:color_git bg:color_lang)\
+$python\
+$nodejs\
+$rust\
+$golang\
+$c\
+$lua\
+[](fg:color_lang)\
+$fill\
+$cmd_duration\
+$time\
+$line_break\
+$character"""
+
+[palettes.tokyo_night]
+color_fg      = "#c0caf5"
+color_bg      = "#1f2335"
+color_dir     = "#7aa2f7"   # blue
+color_git     = "#bb9af7"   # magenta
+color_lang    = "#292e42"   # surface
+color_green   = "#9ece6a"
+color_red     = "#f7768e"
+color_orange  = "#ff9e64"
+color_comment = "#565f89"
+
+[fill]
+symbol = " "
+
+[directory]
+format = "[ $path ]($style)"
+style = "fg:color_bg bg:color_dir"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " "
+
+[git_branch]
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+style = "fg:color_fg bg:color_git"
+
+[git_status]
+format = "[$all_status$ahead_behind ]($style)"
+style = "fg:color_fg bg:color_git"
+
+[python]
+format = "[ $symbol($version)(\\($virtualenv\\)) ]($style)"
+symbol = " "
+style = "fg:color_fg bg:color_lang"
+
+[nodejs]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "fg:color_fg bg:color_lang"
+
+[rust]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "fg:color_fg bg:color_lang"
+
+[golang]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "fg:color_fg bg:color_lang"
+
+[c]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "fg:color_fg bg:color_lang"
+
+[lua]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "fg:color_fg bg:color_lang"
+
+[cmd_duration]
+format = "[  $duration ]($style)"
+style = "fg:color_orange"
+min_time = 500
+
+[time]
+disabled = false
+format = "[  $time ]($style)"
+style = "fg:color_comment"
+time_format = "%H:%M"
+
+[character]
+success_symbol = "[❯](bold color_green)"
+error_symbol = "[❯](bold color_red)"
+vimcmd_symbol = "[❮](bold color_green)"
