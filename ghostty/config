@@ -1,0 +1,25 @@
+# Ghostty — 터미널 에뮬레이터 (클라이언트 전용)
+# 실제로 읽히는 파일명은 확장자 없는 "config" 입니다.
+# 옵션 전체:  ghostty +show-config --default --docs
+
+# ─── 테마 (16색 팔레트) ───────────────────────
+theme = TokyoNight Storm
+
+# ─── 폰트 ─────────────────────────────────────
+font-family = JetBrainsMono Nerd Font
+font-size = 13
+
+# ─── 창 / 배경 ────────────────────────────────
+background-opacity = 0.95
+background-blur = 20
+window-decoration = true
+window-padding-x = 12
+window-padding-y = 12
+window-padding-balance = true
+
+# ─── 커서 ─────────────────────────────────────
+cursor-style = block
+cursor-style-blink = false
+
+# ─── 셸 통합 ──────────────────────────────────
+shell-integration-features = cursor,sudo,title
