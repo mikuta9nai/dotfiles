@@ -3,7 +3,7 @@
 현재 설정의 전체 키 바인딩. (개요·설치는 [README](../README.md) 참고)
 
 - **nvim leader = `Space`**
-- **tmux prefix = `C-a`**
+- **tmux prefix = `C-Space`**
 - 표기: `C-x`=Ctrl, `M-x`=Alt, `<leader>`=Space
 
 ---
@@ -12,18 +12,20 @@
 
 | 키 | 동작 |
 |---|---|
-| `C-a` | prefix (기본 `C-b` 에서 변경) |
-| `C-a \|` | 좌우 분할 (현재 경로 유지) |
-| `C-a -` | 상하 분할 (현재 경로 유지) |
-| `C-a c` | 새 window (현재 경로) |
-| `C-a h/j/k/l` | 패인 이동 (Vi 방향) |
-| `C-a H/J/K/L` | 패인 크기 조절 (반복 가능) |
-| `C-a p` / `C-a n` | 이전 / 다음 window (반복 가능) |
-| `C-a Enter` | 복사 모드 진입 |
+| `C-Space` | prefix (기본 `C-b` 에서 변경) |
+| `C-h/j/k/l` | **pane/split 이동** — nvim split ↔ tmux pane 심리스 (prefix 없이, vim-tmux-navigator) |
+| `C-Space \|` | 좌우 분할 (현재 경로 유지) |
+| `C-Space -` | 상하 분할 (현재 경로 유지) |
+| `C-Space c` | 새 window (현재 경로) |
+| `C-Space H/J/K/L` | 패인 크기 조절 (반복 가능) |
+| `C-Space p` / `C-Space n` | 이전 / 다음 window (반복 가능) |
+| `C-Space C-l` | 화면 지우기 (pane 이동에 뺏긴 C-l 복구) |
+| `C-Space Enter` | 복사 모드 진입 |
 | └ `v` / `y` / `Esc` | 선택 시작 / 복사 / 취소 (복사 모드 내) |
-| `C-a r` | 설정 리로드 |
+| `C-Space r` | 설정 리로드 |
 
-기타: 마우스 on, `base-index 1`, `escape-time 0`(Esc 딜레이 제거), Catppuccin Mocha 상태바.
+기타: 마우스 on, `base-index 1`, `escape-time 0`(Esc 딜레이 제거), Tokyo Night (Storm) 상태바.
+`C-h/j/k/l` 심리스 이동은 첫 설치 후 **`C-Space` + `I`** 로 vim-tmux-navigator 플러그인을 받아야 작동.
 
 ---
 
@@ -39,6 +41,11 @@
 | `n` / `N` | n | 다음 / 이전 검색 (커서 중앙 고정) |
 | `<Esc>` | n | 검색 하이라이트 해제 |
 | `Q` | n | 비활성화 (실수로 Ex 모드 진입 방지) |
+
+### 창 이동  (`plugins/tmux-navigator.lua`)
+| 키 | 동작 |
+|---|---|
+| `C-h/j/k/l` | nvim split ↔ tmux pane 심리스 이동 (prefix 불필요) |
 
 ### 복사 / 붙여넣기  (`keymaps.lua`)
 | 키 | 모드 | 동작 |
@@ -88,16 +95,20 @@
 ### 자동완성 cmp  (insert 모드, `plugins/lsp.lua`)
 | 키 | 동작 |
 |---|---|
-| `C-Space` | 자동완성 띄우기 |
 | `CR` / `Tab` | 확정 (Tab은 스니펫 점프 겸용) |
 | `S-Tab` | 위 항목 / 스니펫 역방향 |
 | `C-n` / `C-p` | 다음 / 이전 항목 |
 | `C-b` / `C-f` | 문서 스크롤 |
 
+### 포맷  (`plugins/format.lua`, conform.nvim)
+| 키 | 모드 | 동작 |
+|---|---|---|
+| `<leader>cf` | n,v | 버퍼/선택 영역 포맷 (C/C++ 는 Norminette 충돌로 저장 시 자동 포맷 제외, 나머지는 저장 시 자동) |
+
 ### Quickfix / 치환  (`keymaps.lua`)
 | 키 | 동작 |
 |---|---|
-| `C-j` / `C-k` | 다음 / 이전 quickfix (중앙 고정) |
+| `]q` / `[q` | 다음 / 이전 quickfix (중앙 고정) |
 | `<leader>s` | 커서 밑 단어 전체 치환 |
 
 ### 터미널  (`keymaps.lua`)
@@ -106,14 +117,20 @@
 | `<leader>th` / `<leader>tv` | 가로 / 세로 분할 터미널 |
 | `<Esc>` | 터미널 → Normal 모드 |
 
-### 42 / C 워크플로우  (`keymaps.lua`)
+### 42 / C 워크플로우  (`keymaps.lua` · `plugins/header.lua`)
 | 키 | 동작 |
 |---|---|
+| `<F2>` | 42 표준 헤더 삽입 (저장 시 자동 갱신) |
 | `<leader>n` | norminette 실행 |
 | `<leader>r` | 저장 후 `42run` |
 | `<leader>co` | `42clean` |
 | `<leader>m` | 저장 후 `make` |
 | `<leader>mc` | `make fclean` |
+
+### Undotree  (`plugins/undotree.lua`)
+| 키 | 동작 |
+|---|---|
+| `<leader>u` | Undotree 토글 (undo 히스토리 트리 시각화) |
 
 ---
 
