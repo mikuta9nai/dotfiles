@@ -54,9 +54,10 @@ map("n", "Q", "<nop>", { desc = "Disable Ex mode" })
 -- 터미널 Esc로 Normal 모드 전환
 map("t", "<Esc>", [[<C-\><C-N>]], { desc = "Terminal: exit insert mode" })
 
--- quickfix 리스트 이동
-map("n", "<C-j>", ":cnext<CR>zz", { desc = "Next quickfix" })
-map("n", "<C-k>", ":cprev<CR>zz", { desc = "Prev quickfix" })
+-- quickfix 리스트 이동 ([d/]d 진단과 동일한 관례).
+-- C-j/C-k 는 vim-tmux-navigator 가 split/pane 이동에 쓰므로 [q/]q 로 옮김.
+map("n", "]q", ":cnext<CR>zz", { desc = "Next quickfix" })
+map("n", "[q", ":cprev<CR>zz", { desc = "Prev quickfix" })
 
 -- 현재 단어 전체 바꾸기 (리팩토링용)
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],

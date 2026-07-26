@@ -115,7 +115,7 @@ return {
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
+          -- C-Space(수동 트리거)는 제거: tmux prefix(C-Space)에 가려짐 + 자동완성이 저절로 뜸.
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
           -- Tab: 확정 or 스니펫 점프
