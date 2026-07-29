@@ -24,6 +24,7 @@ require("lazy").setup({
   { import = "plugins.ui" },
   { import = "plugins.harpoon" },
   { import = "plugins.undotree" },
+  { import = "plugins.claudecode" },
 }, {
   -- lazy.nvim 자체 옵션
   checker = { enabled = false },  -- 자동 업데이트 체크 비활성화
