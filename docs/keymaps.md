@@ -78,7 +78,7 @@
 | **목록 내** `C-q` | 선택을 quickfix 로 |
 | **목록 내** `Esc` | 닫기 |
 
-> `ps`/`pg` 는 ripgrep 이 있으면 rg, 없으면 시스템 grep 으로 **자동 폴백**. (42 클러스터·SSH 박스에서 무설치 동작)
+> `ps`/`pg` 는 ripgrep 이 있으면 rg, 없으면 시스템 grep 으로 **자동 폴백**. (낯선 SSH 박스에서 무설치 동작)
 
 ### LSP  (`plugins/lsp.lua`, 파일 열릴 때 등록)
 | 키 | 동작 |
@@ -100,10 +100,14 @@
 | `C-n` / `C-p` | 다음 / 이전 항목 |
 | `C-b` / `C-f` | 문서 스크롤 |
 
-### 포맷  (`plugins/format.lua`, conform.nvim)
+### 포맷 / 히스토리
 | 키 | 모드 | 동작 |
 |---|---|---|
-| `<leader>cf` | n,v | 버퍼/선택 영역 포맷 (C/C++ 는 Norminette 충돌로 저장 시 자동 포맷 제외, 나머지는 저장 시 자동) |
+| `<leader>cf` | n,v | 버퍼/선택 영역 포맷 (`plugins/format.lua`) |
+| `<leader>u` | n | Undotree 토글 (`plugins/undotree.lua`) |
+
+> 저장 시 모든 파일 타입이 자동 포맷됩니다. `<leader>cf` 는 수동 실행용.
+> 포매터 바이너리가 없으면 조용히 건너뜁니다.
 
 ### Quickfix / 치환  (`keymaps.lua`)
 | 키 | 동작 |
@@ -117,20 +121,25 @@
 | `<leader>th` / `<leader>tv` | 가로 / 세로 분할 터미널 |
 | `<Esc>` | 터미널 → Normal 모드 |
 
-### 42 / C 워크플로우  (`keymaps.lua` · `plugins/header.lua`)
+### 빌드  (`keymaps.lua`)
 | 키 | 동작 |
 |---|---|
-| `<F2>` | 42 표준 헤더 삽입 (저장 시 자동 갱신) |
-| `<leader>n` | norminette 실행 |
-| `<leader>r` | 저장 후 `42run` |
-| `<leader>co` | `42clean` |
 | `<leader>m` | 저장 후 `make` |
 | `<leader>mc` | `make fclean` |
 
-### Undotree  (`plugins/undotree.lua`)
-| 키 | 동작 |
-|---|---|
-| `<leader>u` | Undotree 토글 (undo 히스토리 트리 시각화) |
+### Claude Code  (`plugins/claudecode.lua`)
+| 키 | 모드 | 동작 |
+|---|---|---|
+| `<leader>cc` | n | Claude 토글 |
+| `<leader>cF` | n | Claude 창으로 포커스 |
+| `<leader>cr` | n | 이전 세션 재개 (`--resume`) |
+| `<leader>cC` | n | 마지막 대화 이어가기 (`--continue`) |
+| `<leader>cb` | n | 현재 버퍼를 컨텍스트로 추가 |
+| `<leader>cs` | v | 선택 영역 보내기 |
+| `<leader>ct` | n | 파일 탐색기에서 파일 추가 |
+| `<leader>cy` / `<leader>cn` | n | 제안된 diff 수락 / 거절 |
+
+> `claude` CLI 가 PATH 에 있어야 동작합니다.
 
 ---
 
@@ -143,3 +152,9 @@
 | `C-p` | Telescope git files | cmp 이전 항목 |
 | `C-n` | (없음) | cmp 다음 항목 |
 | `C-f` | (예약: 추후 sessionizer) | cmp 문서 스크롤 |
+
+`<leader>c` 는 Claude Code 네임스페이스지만 `<leader>cf`(포맷) 하나가 같이 들어와
+있습니다. 뒷글자가 겹치지 않아 충돌은 없습니다.
+
+`C-h/j/k/l` 은 tmux(pane) 와 nvim(split) 양쪽이 같은 키를 쓰지만, vim-tmux-navigator
+가 지금 커서가 어느 쪽에 있는지 보고 넘겨주므로 충돌이 아니라 **한 쌍**입니다.
