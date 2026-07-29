@@ -80,8 +80,11 @@ fi
 
 echo ""
 echo "완료. 남은 1회 작업:"
-echo "  1) 도구 설치:  ./tools/install-bins.sh        (no-sudo)"
+echo "  1) 도구 설치:  ./tools/install-bins.sh        (no-sudo, 선택)"
 echo "  2) 셸/클립보드: sudo apt install zsh wl-clipboard"
 echo "  3) 기본 셸 변경: chsh -s \$(command -v zsh)     (재로그인 후 적용)"
-echo "  4) tmux 플러그인: tmux 안에서 prefix(C-a) + I"
+echo "  4) tmux 플러그인: tmux 안에서 prefix(C-Space) + I"
+echo "     └ 세션 영속(resurrect/continuum)과 C-h/j/k/l pane 이동이 여기 달려 있음"
 echo "  * Neovim 첫 실행 시 플러그인 자동 설치."
+echo "  * nvim 의 Claude Code 연동(<leader>c*)은 claude CLI 가 PATH 에 있을 때만 동작."
+echo "  * 키맵 전체: docs/keymaps.md"
