@@ -104,6 +104,7 @@ Windows 는 `nvim/` 만 링크합니다 (tmux·zsh 는 대상 아님).
 | [docs/keymaps.md](docs/keymaps.md) | 전체 키 바인딩 치트시트 (tmux + nvim) |
 | [docs/neovim.md](docs/neovim.md) | nvim 설정 내부 구조 — 어떤 파일이 무엇을 담당하나 |
 | [docs/tools.md](docs/tools.md) | `install-bins.sh` 상세 — 설치 목록·플래그·항목 추가법 |
+| [docs/rollback.md](docs/rollback.md) | 안전망과 되돌리기 — 실험 워크플로·태그·Brewfile |
 | [docs/roadmap.md](docs/roadmap.md) | 맥 개발 환경 구축 로드맵 (진행 중) |
 
 ## 새 항목 추가하기
