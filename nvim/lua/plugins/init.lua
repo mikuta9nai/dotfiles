@@ -14,10 +14,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- plugins/ 하위 모듈을 자동으로 읽어들임
--- 각 파일은 lazy.nvim 플러그인 스펙(테이블)을 return 합니다.
+-- plugins/ 하위 모듈 목록. 각 파일은 lazy.nvim 플러그인 스펙(테이블)을 return 합니다.
+-- 자동 탐색이 아니므로 파일을 추가하면 이 목록에도 등록해야 로드됩니다.
 require("lazy").setup({
-  { import = "plugins.header" },
   { import = "plugins.lsp" },
   { import = "plugins.treesitter" },
   { import = "plugins.format" },

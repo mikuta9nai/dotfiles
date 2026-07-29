@@ -33,7 +33,7 @@ return {
 
       -- ripgrep 유무 자동 감지. 환경을 감지해 분기하는 게 아니라,
       -- "있으면 rg(빠름), 없으면 시스템 grep" 으로 알아서 폴백한다.
-      -- → 42 클러스터/낯선 SSH 박스에서 아무것도 설치 안 해도 grep 검색이 동작.
+      -- → 낯선 SSH 박스에서 아무것도 설치 안 해도 grep 검색이 동작.
       local has_rg = vim.fn.executable("rg") == 1
       local vimgrep_arguments = has_rg and {
         "rg", "--color=never", "--no-heading", "--with-filename",

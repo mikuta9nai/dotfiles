@@ -24,9 +24,8 @@ return {
       -- 구문 하이라이팅
       highlight = { enable = true },
 
-      -- [주의] 들여쓰기는 C에서 42 Norminette(hard tab) 규칙과
-      -- 충돌할 수 있어 비활성화합니다. 필요하면 enable = true 로 변경.
-      indent = { enable = false },
+      -- 구문 기반 자동 들여쓰기
+      indent = { enable = true },
     })
   end,
 }

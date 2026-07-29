@@ -49,7 +49,7 @@ return {
       -- [3] 설치할 서버 목록.
       -- mason-lspconfig 2.x는 ensure_installed 된 서버를 자동으로 활성화함.
       require("mason-lspconfig").setup({
-        -- pyright 는 npm(Node) 의존이라 42 환경에서 설치가 어려움.
+        -- pyright 는 npm(Node) 의존이라 Node 없는 환경에서 설치가 어려움.
         -- pip 기반 jedi-language-server 를 사용 (정의 이동/자동완성 우수).
         ensure_installed = {
           "clangd",                 -- C / C++

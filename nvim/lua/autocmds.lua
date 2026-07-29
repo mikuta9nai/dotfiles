@@ -5,7 +5,7 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
--- 저장 시 줄 끝 공백 자동 제거 (Norminette 위반 방지)
+-- 저장 시 줄 끝 공백 자동 제거
 autocmd("BufWritePre", {
   group = augroup("TrailingWhitespace", {}),
   pattern = "*",

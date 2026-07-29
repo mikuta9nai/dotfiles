@@ -1,5 +1,5 @@
 -- ==========================================
--- 키맵 설정 (ThePrimeagen 스타일 + 42 워크플로우)
+-- 키맵 설정 (ThePrimeagen 스타일)
 -- ==========================================
 
 local map = vim.keymap.set
@@ -79,23 +79,8 @@ map("n", "<Leader>tv", function()
 end, { desc = "Terminal (vertical)" })
 
 -- ==========================================
--- [5] 42 / C언어 워크플로우
+-- [5] 빌드
 -- ==========================================
-
--- Norminette 실행
-map("n", "<leader>n", ":!norminette -R CheckDefine %<CR>",
-  { noremap = true, silent = false, desc = "Run norminette" })
-
--- 42run (컴파일 & 실행)
-map("n", "<leader>r", function()
-  if not vim.bo.readonly and vim.bo.modifiable then
-    vim.cmd("write")
-  end
-  vim.cmd("!42run")
-end, { desc = "Save & run 42run" })
-
--- 42clean (a.out 삭제)
-map("n", "<leader>co", ":!42clean<CR>", { desc = "Run 42clean" })
 
 -- Make 실행
 map("n", "<leader>m", function()
