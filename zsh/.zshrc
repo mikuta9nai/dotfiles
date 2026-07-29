@@ -26,15 +26,27 @@ zstyle ':completion:*' group-name ''
 
 bindkey -e   # emacs 키 (Ctrl+A/E/R 등)
 
-# ─── 플러그인: 자동완성 추천 (회색) ─────────────────────────────────────────────
-ZSH_PLUGINS="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
-[ -f "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh" ] \
-  && source "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
+# ─── 플러그인 로더 ─────────────────────────────────────────────────────────────
+# 설치 위치가 환경마다 다릅니다. install-bins.sh 는 ~/.local/share/zsh/plugins 에,
+# 맥 brew 는 /opt/homebrew/share 에 둡니다. 레이아웃은 <루트>/<이름>/<이름>.zsh 로
+# 양쪽이 같으므로 먼저 찾은 쪽을 씁니다. 어디에도 없으면 조용히 넘어갑니다.
+zsh_plugin() {
+  local root
+  for root in "${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins" /opt/homebrew/share; do
+    if [ -f "$root/$1/$1.zsh" ]; then
+      source "$root/$1/$1.zsh"
+      return
+    fi
+  done
+}
+
+zsh_plugin zsh-autosuggestions   # 이전에 친 명령을 회색으로 미리 보여줌
 
 # ─── 도구 init ─────────────────────────────────────────────────────────────────
 command -v starship >/dev/null && eval "$(starship init zsh)"
 command -v zoxide   >/dev/null && eval "$(zoxide init zsh)"
 command -v direnv   >/dev/null && eval "$(direnv hook zsh)"
+command -v mise     >/dev/null && eval "$(mise activate zsh)"   # 런타임 버전 관리
 
 # fzf 키바인딩/완성 (Ctrl+R 히스토리, Ctrl+T 파일, Alt+C cd)
 if command -v fzf >/dev/null; then
@@ -81,5 +93,4 @@ if [[ -o login ]] && [[ -z "$TMUX" ]] && command -v fastfetch >/dev/null; then
 fi
 
 # ─── syntax-highlighting: 반드시 마지막에 source ───────────────────────────────
-[ -f "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] \
-  && source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+zsh_plugin zsh-syntax-highlighting   # 명령어가 맞으면 초록, 틀리면 빨강
